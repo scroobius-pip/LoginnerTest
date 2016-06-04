@@ -1,0 +1,26 @@
+  ServicePointManager.ServerCertificateValidationCallback = delegate { return true; }; //Bypass Certificate Errors
+                    request = (HttpWebRequest)WebRequest.Create(new Uri(response_url));
+
+                    request.ContentLength = 30;
+                    request.Method = RequestMethods1;
+                    request.UserAgent = UserAgent1;
+                    request.AllowAutoRedirect = true;
+                    request.KeepAlive = true;
+                    request.ContentType = "application/x-www-form-urlencoded";
+                    request.
+                    //Format Post Data
+
+                    StringBuilder postData2 = new StringBuilder();
+                    postData2.Append("accept-tou=yes");
+                    postData2.Append("&connect=Connect");
+
+                    //Write Post Data To Server
+
+                    using (StreamWriter writer = new StreamWriter(request.GetRequestStream()))
+                        writer.Write(postData2);
+
+                    //      response = (HttpWebResponse)request.GetResponse();
+                    //    string REDIRECTLINK1 = request.Address.ToString();
+                    cookies = request.CookieContainer;
+                    //  request.Referer = null;
+                    //    returnData = string.Empty;
